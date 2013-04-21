@@ -1,0 +1,16 @@
+{
+  "name": "from_the_scratch",
+  "version": "0.0.0",
+  "dependencies": {
+    "jade": "~0.29.0",
+    "express": "~3.2.0",
+    "mongoose": "~3.6.7"
+  },
+  "devDependencies": {},
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": "",
+  "author": "",
+  "license": "BSD"
+}
