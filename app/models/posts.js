@@ -1,12 +1,35 @@
 
-var mongoose = require( 'mongoose' );
+var mongoose = require('mongoose');
 
 var Schema = mongoose.Schema;
  
-var Posts = new Schema({
-    title : String,
-    content : String
+var PostSchema = new Schema({
+  title : String,
+  content : String
 });
+
+PostSchema.methods = {
+  all : function() {
+    var self = this;
+
+    return self.find(function(err, posts) {
+      return posts;
+    });
+  },
  
-mongoose.model( 'Posts', Posts );
- 
+  detail : function(id) {
+    var self = this;
+
+    return self.findOne({_id: id}, function(error, post) {
+      return post;
+    });
+  },
+
+  add : function(title, content) {
+    var self = this;
+
+    return self.save({title: title, content: content});
+  }
+};
+
+mongoose.model( 'Post', PostSchema );
