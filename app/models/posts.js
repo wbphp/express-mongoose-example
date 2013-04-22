@@ -8,13 +8,20 @@ var PostSchema = new Schema({
   content : String
 });
 
-PostSchema.methods = {
-  all : function() {
+// PostSchema.statics.all = function() {
+//     var self = this;
+//     var posts;
+//     self.find().lean().exec(function(err, posts) {
+//       posts = posts;
+//     });
+//     return posts;
+//   };
+
+PostSchema.statics = {
+  list : function() {
     var self = this;
 
-    return self.find(function(err, posts) {
-      return posts;
-    });
+    self.find().lean();
   },
  
   detail : function(id) {

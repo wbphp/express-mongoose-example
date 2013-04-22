@@ -4,13 +4,9 @@ var mongoose = require('mongoose')
 
 exports.all = function(req, res){
 
-  // (Post.add)('test', 'test');
-
-  new Post({title: 'title', content: 'content'}).save();
-
-  var posts = Post.find();
-
-  res.render('posts/all', { posts: posts });
+  Post.find().lean().exec(function (err, posts) {
+    res.render('posts/all', { posts: posts });
+  });
 };
 
 exports.detail = function (req, res){

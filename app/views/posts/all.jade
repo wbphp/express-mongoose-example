@@ -2,6 +2,7 @@
 extends ../layout
 
 block content
-  ul
-    each post in posts
-      li= post.title
+  div
+    ul
+     each post in posts
+      li #{post.title} content #{post.content}
